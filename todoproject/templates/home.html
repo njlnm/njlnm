@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-7">
+        <form method="post" class="p-3 shadow">
+     {% csrf_token %}
+
+            <div class="form-group">
+<input type="text"  class="form-control" name="task" placeholder="task name"><br>
+    </div>
+<div class="form-group">
+<input type="text" class="form-control" name="priority" placeholder="Enter the priority"><br>
+    </div>
+
+    <input type="submit" class="btn btn-success">
+        </form>
+
+
+
+
+
+             </div>
+        <div class="col-md-6">
+            <h4>Task to completed</h4>
+            {% for i in task1 %}
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{i.name}}</h5>
+                    <P><b>{{i.priority}}</b>
+                    </p>
+                    <a class="btn btn-danger" href="">Done</a>
+                </div>
+            </div>
+            <br>
+            {% endfor %}
+        </div>
+        </div>
+
+</div>
+
+
+
+
+
+
+
+{% endblock %}
